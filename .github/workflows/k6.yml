@@ -1,0 +1,16 @@
+name: k6
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Pull Docker image for k6
+      run: docker pull loadimpact/k6
