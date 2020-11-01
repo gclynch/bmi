@@ -1,5 +1,9 @@
 name: BMI_CI
 
+env:
+  AZURE_WEBAPP_NAME: your-app-name    # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+
 on:
   push:
     branches: [ master ]
@@ -13,4 +17,6 @@ jobs:
     - name: Build for Release
       run: dotnet build --configuration Release
     - name: Run unit tests
-      run: dotnet test UnitTest/*.csproj --no-restore --collect "Code coverage"
+      run: dotnet test *UnitTests/*.csproj --no-restore --collect "Code coverage"
+    - name: Publish
+      run: dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
