@@ -13,5 +13,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: Pull Docker image for k6
       run: docker pull loadimpact/k6
-    - name: Run k6 load test using docker image on runner
-      run: docker run -i loadimpact/k6 run - <perf1.js > k6report.txt
+    - name: Run k6 load test
+      run: docker run -i loadimpact/k6 run - <perf1.js 
