@@ -5,9 +5,9 @@ env:
   AZURE_WEBAPP_PACKAGE_PATH: 'publish'              # set this to the path to your web app project
 
 on:
-  push:
+  push:                                             #  workflow_dispatch for manually triggered
     branches: [ master ]
-
+ 
 
 jobs:
   build:
