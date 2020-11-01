@@ -13,4 +13,4 @@ jobs:
     - name: Build for Release
       run: dotnet build --configuration Release
     - name: Run unit tests
-      run: dotnet test UnitTest/*.csproj --no-restore --collect "Code coverage"'
+      run: dotnet test UnitTest/*.csproj --no-restore --collect "Code coverage"
