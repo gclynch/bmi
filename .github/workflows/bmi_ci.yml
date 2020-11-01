@@ -1,0 +1,16 @@
+name: BMI_CI
+
+on:
+  push:
+    branches: [ master ]
+
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build for Release
+      run: dotnet build --configuration Release
+    - name: Run unit tests
+      run: dotnet test UnitTest/*.csproj --no-restore --collect "Code coverage"'
